@@ -1,0 +1,154 @@
+/* general background page settings */
+body{
+	background-image: url("../images/background.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+/* ---------------------------------------------- */
+/* h2 secondary header "Create New Burger Order" */
+h2{
+	text-align: center;
+	font-size: 35px;
+	margin:5% 0 2% 0;
+	color: white;
+}
+
+/* icon */
+#food-icon{
+	color:white;
+	margin-left:48%;
+	font-size: 34px;
+}
+
+/* stylistic bars */
+#left-bar-2, #right-bar-2{
+	width:41%;
+	height:6px;
+	color:white;
+	border:1px solid white;
+}
+
+#left-bar-2{
+	margin-left:5%;
+	margin-bottom:-2.5%;
+}
+
+#right-bar-2{
+	margin-left:53%;
+	margin-top:-2.75%;
+	margin-bottom:5%;
+}
+
+/* ---------------------------------------------- */
+/* "create a new burger" order div */
+#new-burger-div{
+	background-color: white;
+	width:70%;
+	margin:1% 15% 5% 15%;
+	padding:3%;
+	text-align: center;
+	border-radius:10px;
+}
+
+/* "burger order" title */
+#order-here-title{
+	font-size: 20px;
+	font-weight: bold;
+}
+
+/* input box width */
+#ca{
+	width:50%;
+	padding:1% 2%;
+}
+
+/* "view your order down below" */
+#view-down{
+	text-align: center;
+	color: white;
+}
+
+/* double down arrow */
+#down-arrow{
+	font-size: 42px;
+	color:white;
+	margin-bottom:5%;
+}
+
+
+/* =========================================================================== */
+/* ---------------------------------------------- */
+/* h1 main header "Hamburgers" */
+h1{
+	text-align: center;
+	padding:1.5%;
+	font-size: 40px;
+	color: white;
+}
+
+/* stylistic bars */
+#left-bar-1, #right-bar-1{
+	width:28%;
+	height:6px;
+	color:white;
+	border:1px solid white;
+}
+
+#left-bar-1{
+	margin-left:5%;
+	margin-bottom:-6%;
+	margin-top:5%;
+}
+
+#right-bar-1{
+	margin-left:67%;
+	margin-top:-7%;
+	margin-bottom:5%;
+}
+
+/* ---------------------------------------------- */
+/* hamburger order container */
+.container{
+	margin-bottom: 5%;
+}
+
+/* h3 col headings "eaten/have not eaten" */
+h3{
+	text-align: center;
+	font-size: 26px;
+	color: white;
+}
+
+hr{
+	border: .5px solid white;
+	width:90%;
+}
+
+/* burger lists */
+li {
+  	padding: 6%;
+  	margin:5% 0 4% -7.5%;
+  	background:rgba(255, 255, 255, 1);
+  	border-radius:10px;
+  	padding:5%;
+}
+
+ul li{
+	list-style-type: none;
+	text-decoration: none;
+	font-size: 22px;
+	text-align: center;
+	
+}
+
+/* eat and delete button */
+.change-eaten, .delete-burger {
+	margin-top:3%;
+	border-radius: 5px;
+}
+
+
+
+

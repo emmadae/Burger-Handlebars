@@ -1,87 +1,69 @@
-<h1>Movies To Watch</h1>
+<!-- ================================================================= -->
+<!-- Create a new hamburger -->
+<h2>CREATE A NEW BURGER ORDER</h2>
+  <div id="left-bar-2"></div>
+  <div id="food-icon">
+    <i class="fa fa-cutlery" aria-hidden="true"></i>
+  </div>
+  <div id="right-bar-2"></div>
 
-<ul>
-  {{#each movies}}
-    <li>
-      <p>
-        {{this.id}}. {{this.movie}}
+<!-- new burger form -->
+<div id="new-burger-div">
+  <form class="create-form">
+    <!-- order a burger by name -->
+    <div class="form-group">
+      <label id="order-here-title" for="ca">Burger Order:</label> <br>
+      <input type="text" id="ca" name="name" placeholder="Burger Order Here:">
+    </div>
+    <!-- determin weather this has or has not been eaten -->
+    <div class="form-group">
+      <label for="eaten">Is This An Order That Has Been Eaten Yet?</label><br>
+      <input type="radio" name="eaten" value="0" checked> This Order Has NOT Been Eaten Yet. <br>
+      <input type="radio" name="eaten" value="1"> This Burger HAS Been Eaten
+    </div>
 
-        <button data-movieid="{{this.id}}" class="delmovie">Delete</button>
-      </p>
-    </li>
-  {{/each}}
-</ul>
+    <button type="submit" class="btn btn-primary">PLACE A NEW ORDER</button>
+  </form>
+</div>
 
-<h2>Add a Movie to Watch</h2>
-<form id="addmovie" class="button-size">
-	<textarea type="text" name="movie"></textarea>
-	<button type="submit">Save Movie!</button>
-</form>
+<p id="view-down"> VIEW YOUR HAMBURGER ORDERS <br><i id="down-arrow" class="fa fa-angle-double-down" aria-hidden="true"></i></p>
 
-<h2>Update a Movie</h2>
-<form id="updatemovie" class="button-size">
-  <input type="text" name="id" placeholder="id">
-	<textarea type="text" name="movie" placeholder="what do you want to update this movie title to?"></textarea>
-	<button type="submit">Update Movie!</button>
-</form>
 
-<script type="text/javascript">
-  $(".delmovie").on("click", function(event) {
-    var id = $(this).data("movieid");
+<!-- ================================================================= -->
+<!-- Hamburgers lists that have and have not been eaten -->
+<h1>HAMBURGER ORDERS</h1>
 
-    // Send the DELETE request.
-    $.ajax("/movies/" + id, {
-      type: "DELETE"
-    }).then(
-      function() {
-        console.log("deleted id ", id);
-        // Reload the page to get the updated list
-        location.reload();
-      }
-    );
-  });
+  <div id="left-bar-2"></div>
+  <div id="food-icon">
+    <i class="fa fa-cutlery" aria-hidden="true"></i>
+  </div>
+  <div id="right-bar-2"></div>
 
-  $("#addmovie").on("submit", function(event) {
-    // Make sure to preventDefault on a submit event.
-    event.preventDefault();
-
-    var newMovie = {
-      movie: $("#addmovie [name=movie]").val().trim()
-    };
-
-    // Send the POST request.
-    $.ajax("/movies", {
-      type: "POST",
-      data: newMovie
-    }).then(
-      function() {
-        console.log("added new movie");
-        // Reload the page to get the updated list
-        location.reload();
-      }
-    );
-  });
-
-  $("#updatemovie").on("submit", function(event) {
-    // Make sure to preventDefault on a submit event.
-    event.preventDefault();
-
-    var id = $("[name=id]").val().trim();
-
-    var updatedMovie = {
-      movie: $("#updatemovie [name=movie]").val().trim()
-    };
-
-    // Send the PUT request.
-    $.ajax("/movies/" + id, {
-      type: "PUT",
-      data: updatedMovie
-    }).then(
-      function() {
-        console.log("updated id ", id);
-        // Reload the page to get the updated list
-        location.reload();
-      }
-    );
-  });
-</script>
+  <div class="container">
+    <div class="row">
+      <!-- Burgers that have not been eaten -->
+      <div class="col-sm-6">
+          <h3> New Burger Orders: <br> Have NOT Been Eaten</h3>
+          <hr>
+          <ul>
+            {{#each burgers}}
+              {{#unless eaten}}
+                {{> burgers/burgers-block eaten=true}}
+              {{/unless}}
+            {{/each}}
+          </ul>
+      </div>      
+      <!-- Burgers that have been eaten -->
+      <div class="col-sm-6">
+          <h3>Old Burger Orders: <br> HAVE Been Eaten</h3>
+          <hr>
+          <ul>
+            {{#each burgers}}
+              {{#if eaten}}
+                {{> burgers/burgers-block eaten=false}}
+              {{/if}}
+            {{/each}}
+          </ul>
+      </div>   
+    </div>
+  </div>

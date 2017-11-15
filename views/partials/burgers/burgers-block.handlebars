@@ -1,0 +1,9 @@
+<li>
+	{{name}}
+	<br>
+	<button type="button" class="change-eaten btn btn-primary" data-id="{{id}}" data-newsleep="{{eaten}}">
+		{{#if eaten}} EAT THE BURGER <i class="fa fa-cutlery" aria-hidden="true"></i>{{else}} EATEN <i class="fa fa-check-circle-o" aria-hidden="true"></i>{{/if}}
+	</button>
+
+	<button type="button" class="delete-burger btn btn-outline-dark" data-id="{{this.id}}"> DELETE <i class="fa fa-times-circle-o" aria-hidden="true"></i></button>
+</li>
